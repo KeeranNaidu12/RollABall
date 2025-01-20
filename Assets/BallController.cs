@@ -1,16 +1,15 @@
 using System.Numerics;
+using Unity.VisualScripting;
 using Unity.VisualScripting.InputSystem;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     public Rigidbody sphereRigidbody;
     public float ballSpeed = 2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-       
-    }
+    public UnityEvent<UnityEngine.Vector2> onMove = new UnityEvent<UnityEngine.Vector2>();
 
     // Update is called once per frame
     void Update()
@@ -30,6 +29,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
         UnityEngine.Vector3 inputXYZPlane = new UnityEngine.Vector3(inputVector.x,0,inputVector.y);
         sphereRigidbody.AddForce(inputXYZPlane*ballSpeed);
+
+        onMove?.Invoke(inputVector);
         
     }
 }
