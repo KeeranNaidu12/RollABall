@@ -6,16 +6,16 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     public Rigidbody sphereRigidbody;
     public float ballSpeed = 2f;
-    private UnityEngine.Vector2 inputVector;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        inputVector = new UnityEngine.Vector2(0,0);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        UnityEngine.Vector2 inputVector = UnityEngine.Vector2.zero;
         if(Input.GetKey(KeyCode.W)){
             inputVector += UnityEngine.Vector2.up;
         }
