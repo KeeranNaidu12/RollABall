@@ -7,9 +7,8 @@ using UnityEngine.Events;
 public class BallController : MonoBehaviour
 {
     public Rigidbody sphereRigidbody;
+    public float ballSpeed = 2f;
     void Start(){
-
-
     }
 
     void Update(){
@@ -28,7 +27,7 @@ public class BallController : MonoBehaviour
         }
 
         UnityEngine.Vector3 inputXYZPlane = new UnityEngine.Vector3(inputVector.x,0,inputVector.y);
-        sphereRigidbody.AddForce(inputXYZPlane);
+        sphereRigidbody.AddForce(inputXYZPlane*ballSpeed);
 
     }
 }
